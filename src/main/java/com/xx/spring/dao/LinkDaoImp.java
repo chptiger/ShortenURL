@@ -14,7 +14,7 @@ public class LinkDaoImp implements LinkDao {
 
 	public long save(Link link) {
 		sessionFactory.getCurrentSession().save(link);
-		return 0;
+		return link.getId();
 	}
 
 }
