@@ -20,13 +20,13 @@ public class LinkDaoImp implements LinkDao {
 	@Autowired
 	private SessionFactory sessionFactory;
 
-	public long save(Link link) {
+	public int save(Link link) {
 		sessionFactory.getCurrentSession().save(link);
 		return link.getId();
 	}
 
 	@Override
-	public Link get(long id) {
+	public Link get(int id) {
 		return sessionFactory.getCurrentSession().get(Link.class, id);
 	}
 
@@ -42,7 +42,7 @@ public class LinkDaoImp implements LinkDao {
 	}
 
 	@Override
-	public void update(long id, Link link) {
+	public void update(int id, Link link) {
 		Session session = sessionFactory.getCurrentSession();
 		Link link2 = session.byId(Link.class).load(id);
 		link2.setDestination(link.getDestination());
@@ -50,7 +50,7 @@ public class LinkDaoImp implements LinkDao {
 	}
 
 	@Override
-	public void delete(long id) {
+	public void delete(int id) {
 		Session session = sessionFactory.getCurrentSession();
 		Link link = session.byId(Link.class).load(id);
 		session.delete(link);

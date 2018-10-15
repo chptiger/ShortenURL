@@ -6,15 +6,15 @@ import com.xx.spring.model.Link;
 
 public interface LinkDao {
 
-	long save(Link link);
+	int save(Link link);
 
-	Link get(long id);
+	Link get(int id);
 
 	List<Link> list();
 
-	void update(long id, Link link);
+	void update(int id, Link link);
 
-	void delete(long id);
+	void delete(int id);
 
 	Link get(String slug);
 

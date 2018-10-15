@@ -1,5 +1,7 @@
 package com.xx.spring.model;
 
+import java.sql.Date;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -18,6 +20,26 @@ public class Link {
 	
 	@Column(name = "destination")
 	private String destination;
+
+	private Date createdOn;
+	
+	private Date updatedOn;
+	
+	public Date getCreatedOn() {
+		return createdOn;
+	}
+
+	public void setCreatedOn(Date createdOn) {
+		this.createdOn = createdOn;
+	}
+
+	public Date getUpdatedOn() {
+		return updatedOn;
+	}
+
+	public void setUpdatedOn(Date updatedOn) {
+		this.updatedOn = updatedOn;
+	}
 
 	public String getSlug() {
 		return slug;

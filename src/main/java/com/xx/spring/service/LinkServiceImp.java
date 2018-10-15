@@ -18,11 +18,11 @@ public class LinkServiceImp implements LinkService {
 	private LinkDao linkDao;
 	
 	@Transactional
-	public long save(Link link) {
+	public int save(Link link) {
 		return linkDao.save(link);
 	}
 
-	public Link get(long id) {
+	public Link get(int id) {
 		return linkDao.get(id);
 	}
 
@@ -32,12 +32,12 @@ public class LinkServiceImp implements LinkService {
 	}
 
 	@Override
-	public void update(long id, Link link) {
+	public void update(int id, Link link) {
 		linkDao.update(id, link);
 	}
 
 	@Override
-	public void delete(long id) {
+	public void delete(int id) {
 		linkDao.delete(id);
 	}
 

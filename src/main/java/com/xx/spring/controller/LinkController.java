@@ -39,10 +39,12 @@ public class LinkController {
 			}
 		}
 		Link existingLink = linkService.get(link.getSlug());
-		if (StringUtils.isEmpty(existingLink)) {
+		if (existingLink == null || StringUtils.isEmpty(existingLink.getDestination())) {
 			// 2. assign value to destination
-			long id = linkService.save(link);
-			link.setDestination(ShortenURLGenerator.idToShoretenURL(link.getId()));
+			int id = linkService.save(link);
+			Link newLink = new Link();
+			newLink.setDestination(ShortenURLGenerator.idToShoretenURL(link.getId()));
+			linkService.update(link.getId(), newLink);
 		}
 
 		return ResponseEntity.ok().body("Shorten Link:  " + link.getDestination());
@@ -50,7 +52,7 @@ public class LinkController {
 
 	// get the link by id
 	@GetMapping("/link/{id}")
-	public ResponseEntity<Link> get(@PathVariable("id") long id) {
+	public ResponseEntity<Link> get(@PathVariable("id") int id) {
 		Link link = linkService.get(id);
 		return ResponseEntity.ok().body(link);
 	}
@@ -64,14 +66,14 @@ public class LinkController {
 
 	// update a link by id
 	@PutMapping("/link/{id}")
-	public ResponseEntity<?> update(@PathVariable("id") long id, @RequestBody Link link) {
+	public ResponseEntity<?> update(@PathVariable("id") int id, @RequestBody Link link) {
 		linkService.update(id, link);
 		return ResponseEntity.ok().body("Link has been udpated successfully.");
 	}
 
 	// delete a link by id
 	@DeleteMapping("/link/{id}")
-	public ResponseEntity<?> delete(@PathVariable("id") long id) {
+	public ResponseEntity<?> delete(@PathVariable("id") int id) {
 		linkService.delete(id);
 		return ResponseEntity.ok().body("Link has been deleted successfully.");
 	}
