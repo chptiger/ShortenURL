@@ -1,6 +1,8 @@
 package com.xx.spring.service;
 
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -18,6 +20,25 @@ public class LinkServiceImp implements LinkService {
 	@Transactional
 	public long save(Link link) {
 		return linkDao.save(link);
+	}
+
+	public Link get(long id) {
+		return linkDao.get(id);
+	}
+
+	@Override
+	public List<Link> list() {
+		return linkDao.list();
+	}
+
+	@Override
+	public void update(long id, Link link) {
+		linkDao.update(id, link);
+	}
+
+	@Override
+	public void delete(long id) {
+		linkDao.delete(id);
 	}
 
 }
