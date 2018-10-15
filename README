@@ -1,0 +1,15 @@
+1. How to run ShortenURL in eclipse.
+Right click project, Run AS -> Maven Build ->  clean install
+Right click project, Run AS -> Maven Build ->  tomcat7:run
+
+Running war on http://localhost:8080/
+
+Test it in Postman:
+
+POST method http://localhost:8080/link with JSON data
+{
+	"slug":"tstd",
+	"destination":"sdfsdf dsf sdf"
+}
+
+GET method http://localhost:8080/link/1
