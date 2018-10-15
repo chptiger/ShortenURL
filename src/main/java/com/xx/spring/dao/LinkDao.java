@@ -16,4 +16,6 @@ public interface LinkDao {
 
 	void delete(long id);
 
+	Link get(String slug);
+
 }

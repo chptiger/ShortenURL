@@ -9,6 +9,8 @@ public interface LinkService {
 	long save(Link link);
 
 	Link get(long id);
+	
+	Link get(String slug);
 
 	List<Link> list();
 

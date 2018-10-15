@@ -56,4 +56,11 @@ public class LinkDaoImp implements LinkDao {
 		session.delete(link);
 	}
 
+	@Override
+	public Link get(String slug) {
+		Session session = sessionFactory.getCurrentSession();
+//		run SQL to check if exist URL
+		return null;
+	}
+
 }

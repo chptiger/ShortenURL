@@ -41,4 +41,9 @@ public class LinkServiceImp implements LinkService {
 		linkDao.delete(id);
 	}
 
+	@Override
+	public Link get(String slug) {
+		return linkDao.get(slug);
+	}
+
 }

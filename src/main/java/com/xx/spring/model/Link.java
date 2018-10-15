@@ -11,7 +11,7 @@ public class Link {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
+	private int id;
 	
 	@Column(name = "slug")
 	private String slug;
@@ -35,11 +35,12 @@ public class Link {
 		this.destination = destination;
 	}
 
-	public Long getId() {
+	public int getId() {
 		return id;
 	}
 
-	public void setId(Long id) {
+	public void setId(int id) {
 		this.id = id;
 	}
+
 }
